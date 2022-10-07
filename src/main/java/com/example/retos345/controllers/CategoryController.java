@@ -32,7 +32,7 @@ public class CategoryController {
 //ResponseEntity<List<Category>>
     @GetMapping("/all")
     public String  getCategorys(){
-        return "a ver a ver póngase así y abra las piernas yo uso la lengua";
+        return "a ver a ver póngase así y abra las piernas yo uso la lengua 👅🤤";
         //return new ResponseEntity<List<Category>>(this.categoryService.getListCategorys(), HttpStatus.OK);
     }
 
