@@ -29,10 +29,11 @@ public class CategoryController {
     public CategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
-
+//ResponseEntity<List<Category>>
     @GetMapping("/all")
-    public ResponseEntity<List<Category>> getCategorys(){
-        return new ResponseEntity<List<Category>>(this.categoryService.getListCategorys(), HttpStatus.OK);
+    public String  getCategorys(){
+        return "DALE CON TODA EN ESE TRABAJO MI AMOR CONFÍA EN TI Y RECUERDA QUE NO PASA NADA SI LO DEJAS, IGUAL VAMOS A MORIR A VER A VER SÚBETE AQUÍ YO TE NALGUEO";
+        //return new ResponseEntity<List<Category>>(this.categoryService.getListCategorys(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
