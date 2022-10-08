@@ -20,7 +20,7 @@ import com.example.retos345.services.CategoryService;
 
 @Service
 @RestController
-@RequestMapping("api/Category")
+@RequestMapping("api/Venga")
 public class CategoryController {    
 
     @Autowired
@@ -30,9 +30,9 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 //ResponseEntity<List<Category>>
-    @GetMapping("/all")
+    @GetMapping("/MiNovia")
     public String  getCategorys(){
-        return "a ver a ver póngase así y abra las piernas yo uso la lengua 👅🤤";
+        return "al final sí la subió, a ver a ver póngase así y abra las piernas yo uso la lengua 👅🤤";
         //return new ResponseEntity<List<Category>>(this.categoryService.getListCategorys(), HttpStatus.OK);
     }
 
