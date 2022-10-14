@@ -21,7 +21,7 @@ import com.example.retos345.services.FarmService;
 
 @Service
 @RestController
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 @RequestMapping("api/Farm")
 public class FarmController {    
 
