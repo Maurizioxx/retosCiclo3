@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.retos345.entities.Client;
 import com.example.retos345.entities.Reservation;
 import com.example.retos345.services.ReservationService;
 
@@ -42,22 +43,6 @@ public class ReservationController {
         return new ResponseEntity<Reservation>(this.reservationService.getReservation(id), HttpStatus.OK);
     }
 
-    @GetMapping("/report-dates/{start}/{end}")
-    public ResponseEntity<List<Reservation>> getReservationsReportDates(@PathVariable("start") String start,
-    @PathVariable("end") String end ){
-        return new ResponseEntity<List<Reservation>>(this.reservationService.getReservationsReportDates(start,end), HttpStatus.OK);
-    }
-
-    @GetMapping("/report-status")
-    public ResponseEntity<String> getReservationsReportStatus(){
-        return new ResponseEntity<String>(this.reservationService.getReservationsReportStatus(), HttpStatus.OK);
-    }
-
-    @GetMapping("/report-clients")
-    public ResponseEntity<String> getReservationsReportClients(){
-        return new ResponseEntity<String>(this.reservationService.getReservationsReportClients(), HttpStatus.OK);
-    }
-
     @PostMapping("/save")
     public ResponseEntity<Void> crearReservation(@RequestBody Reservation reservation){
         this.reservationService.crearReservation(reservation);
@@ -75,7 +60,21 @@ public class ReservationController {
         this.reservationService.actualizarReservation(reservation.getIdReservation(), reservation);
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
-
     
+    @GetMapping("/report-dates/{start}/{end}")
+    public ResponseEntity<List<Reservation>> getReservationsReportDates(@PathVariable("start") String start, @PathVariable("end") String end){
+        return new ResponseEntity<List<Reservation>>(this.reservationService.getReservationsReportDates(start, end),HttpStatus.OK);
+    }
+
+    @GetMapping("/report-status")
+    public ResponseEntity<String> getReservationsReportStatus(){
+        return new ResponseEntity<String>(this.reservationService.getReservationsReportStatus(), HttpStatus.OK);
+    }
+
+    @GetMapping("/report-clients")
+    public ResponseEntity<String> getReservationsReportClients(){
+        return new ResponseEntity<String>(this.reservationService.getReservationsReportClients(), HttpStatus.OK);
+    }
+
 
 }

@@ -5,16 +5,13 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 
 @Entity
 @Table(name = "reservation")
@@ -46,10 +43,6 @@ public class Reservation implements Serializable{
     @JsonIgnoreProperties(value = {"messages", "reservations"})
 	@JoinColumn(name = "client_id")
 	private Client client;
-    // @ManyToOne(fetch = FetchType.LAZY, optional = false)
-	// @JoinColumn(name = "ortopedic_id")
-	// @JsonProperty(access = Access.WRITE_ONLY)
-	// private Ortopedic ortopedic;
 
     @Column(name = "score")
     private String score;
@@ -87,14 +80,6 @@ public class Reservation implements Serializable{
         this.client = client;
     }
 
-    // public Ortopedic getOrtopedic() {
-    //     return ortopedic;
-    // }
-
-    // public void setOrtopedic(Ortopedic ortopedic) {
-    //     this.ortopedic = ortopedic;
-    // }
-
     public Farm getFarm() {
         return farm;
     }
@@ -119,11 +104,9 @@ public class Reservation implements Serializable{
         this.status = status;
     }
 
-
     public String getScore() {
         return score;
     }
-
 
     public void setScore(String score) {
         this.score = score;
