@@ -33,14 +33,11 @@ public class Farm implements Serializable{
     @Column(name = "address")
     private String address;
 
-
     @Column(name = "extension")
     private Integer extension;
 
     @Column(name = "description")
     private String description;
-
-
 
     
 
@@ -54,8 +51,9 @@ public class Farm implements Serializable{
     @JsonIgnoreProperties(value = {"farms"})
 	@JoinColumn(name = "category_id")
 	private Category category;
-   
-	
+    // @OneToOne
+	// @JoinColumn(name = "category_id")
+	// private Category category;
 
     // Un Farm puede tener muchas Reservation y Messages.
     
