@@ -2,22 +2,20 @@ package com.example.retos345.services;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.retos345.entities.Client;
+import com.example.retos345.entities.ReportClient;
 import com.example.retos345.entities.Reservation;
 import com.example.retos345.repositories.ClientRepository;
 import com.example.retos345.repositories.ReservationRepository;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-
 
 @Service
 public class ReservationService {
@@ -34,18 +32,15 @@ public class ReservationService {
 
         // METODOS CRUD
         // *******  INICIO REPORTES *********
-        public String getReservationsReportClients(){
-            List<Client> clients = this.clientRepository.findAll();
-            JSONArray jsonArray = new JSONArray();
-            JSONObject json = new JSONObject();
-            for(int i=0; i<clients.size(); i++){
-                int total = clients.get(i).getReservations().size();
-                json.put("total", total);
-                json.put("client", clients.get(i).toString());
-                jsonArray.put(json);
+        
+        public List<ReportClient> getReservationsReportClients(){
+            List<ReportClient> listReportClients = new ArrayList();
+            List<Client> listClients = this.clientRepository.findAll();
+            for(int i=0; i<listClients.size(); i++){
+                ReportClient reportClient = new ReportClient(listClients.get(i));
+                listReportClients.add(reportClient);
             }
-            System.out.println(jsonArray.toString());
-            return jsonArray.toString();
+            return listReportClients;
         }
 
         public String getReservationsReportStatus(){
